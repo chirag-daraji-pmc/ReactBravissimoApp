@@ -1,12 +1,14 @@
 import React from 'react';
+import {Navigation } from './components/NavigationComponents/Navigation.jsx'
+import {Container } from './components/NavigationComponents/Container.jsx'
+
 
 class App extends React.Component {
-  
   render() {
-      const numbers = [1, 2, 3, 4, 5];
     return (
       <div>
-        <h1> Hello Wrold</h1>
+        <Navigation />
+        <Container />
       </div>
     );
   }
