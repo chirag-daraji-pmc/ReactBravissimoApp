@@ -4,7 +4,7 @@ export class Bag extends Component {
 
     render() {
 
-        const produtInBag = this.props.productList;
+        const produtInBag = this.props.productsInBag;
         console.log("bagProduects:"+produtInBag)
         return (
             <div>
@@ -20,12 +20,12 @@ export class Bag extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {/*{produtInBag.map((product, i) => <tr key={product.id}>
+                        {produtInBag.map((product, i) => <tr key={product.id}>
                             <td>{product.id} </td>
                             <td>{product.title} </td>
                             <td>{product.price} </td>
-                            <td><button onClick={() => this.handleAddToBagClick(product)}>remove</button></td>
-                        </tr>)}*/}
+                            <td><button onClick={() => this.props.handleRemoveFromBagClick(product)}>remove</button></td>
+                        </tr>)}
                     </tbody>
                 </table>
             </div>

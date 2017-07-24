@@ -13,6 +13,7 @@ export class Container extends Component {
             productsInBag: []
         }
         this.handleAddToBagClick = this.handleAddToBagClick.bind(this);
+        this.handleRemoveFromBagClick = this.handleRemoveFromBagClick.bind(this);
 
     }
 
@@ -23,13 +24,22 @@ export class Container extends Component {
         this.setState({ productsInBag: newBagProducts });
         console.log(this.state.productsInBag);
     }
-    render() {
-        return (
 
-            <Switch>
-                <Route exact path='/' render={(props) => (<ProductList productList={this.state.productList} handleAddToBagClick={this.handleAddToBagClick} />)} />
-                <Route path='/bag' render={(props) => (<Bag productsInBag={this.state.productsInBag} />)} />
-            </Switch>
+    handleRemoveFromBagClick(product){
+        var newBagProducts = this.state.productsInBag;
+        var index = newBagProducts.indexOf(product);
+        newBagProducts.splice(index,1);
+        this.setState({ productsInBag: newBagProducts })
+        console.log('handleRemoveFromBagClick' + this.state.productsInBag);
+    }
+    render() {
+        console.log(this.state.productsInBag)
+        return (
+            
+            < Switch >
+            <Route exact path='/' render={(props) => (<ProductList productList={this.state.productList} handleAddToBagClick={this.handleAddToBagClick} />)} />
+            <Route path='/bag' render={(props) => (<Bag productsInBag={this.state.productsInBag} handleRemoveFromBagClick={this.handleRemoveFromBagClick}/>)} />
+            </Switch >
 
         );
     }
