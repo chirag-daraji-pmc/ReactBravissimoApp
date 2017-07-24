@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 
 export class ProductList extends Component {
-    
+
     render() {
         const productList = this.props.productList;
 
         return (
 
             <div>
-                <h1>Product List </h1> <butoon >View Bag</butoon>
+                <h1>Product List </h1>
                 <br />
                 <table>
                     <thead>
